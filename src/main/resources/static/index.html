@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>文件上传</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
 </head>
 <body>
-    <input id="cert" type="file" />
-    <input type="button" value="上传" onclick="submit2();" />
+    <div id="vueUpload">
+        <label class="control-label">{{labelMessage}}</label>
+        <div id="fileStyleAdapter"></div>
+        <input id="fileInput_one" type="file" class="upload" @change="tirggerFile($event)"/>
+        <input id="fileSubmitBtn" type="button" value="上传" @click="dpupload">
+    </div>
+
+    <div id="vueListFiles">
+        <span id="refreshList">刷新</span>
+        <ul>
+            <li v-for="file in files">
+                {{ file.name }}
+            </li>
+        </ul>
+    </div>
+    <span class="iconfont .icon-icon_add"></span>
 </body>
 <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="js/lib/vue.js"></script>
 <script src="js/fileserver.js"></script>
 </html>

@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class FileVo {
     private String name;
-    private String size;
+    private Long size;
     private String type;
 }

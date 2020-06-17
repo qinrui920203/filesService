@@ -1,15 +1,14 @@
 package com.upload.controller;
 
+import com.upload.Vo.FileServerCache;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.server.PathParam;
 import java.io.*;
 
 @Slf4j
@@ -17,8 +16,8 @@ import java.io.*;
 @RequestMapping("/download")
 public class DownLoadController {
 
-    @Value("${fileserver.basepath}")
-    private String filePath;
+    @Autowired
+    private FileServerCache fileServerCache;
 
     /**
      * 文件下载功能
@@ -40,7 +39,7 @@ public class DownLoadController {
 
         try {
             outputStream = response.getOutputStream();
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(new File(filePath+'/'+ fileName)));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(new File(fileServerCache.getBasePath()+'/'+ fileName)));
             int count = bufferedInputStream.read(buff);
             while (count > 0) {
                 outputStream.write(buff,0, buff.length);
