@@ -1,8 +1,10 @@
 package com.upload.Vo;
 
+import com.upload.utils.FileUtils;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,20 +27,8 @@ public class FileServerCache {
     private List<FileVo> fileInfoList;
 
     /* ** 增加一个文件信息到缓存 */
-    public FileVo cacheFileInfo(String fileName, Long fileSize){
-
-        FileVo fileInfo = new FileVo();
-        fileInfo.setName(fileName);
-        fileInfo.setSize(fileSize);
-
-        String[] splitNames = fileName.split(".");
-        if(fileName.length() >= 2 &&
-                !(fileName.indexOf(".")==0) ){
-            fileInfo.setType("dir");
-        } else {
-            fileInfo.setType(splitNames[splitNames.length-1]);
-        }
-
+    public FileVo cacheFileInfo(File file){
+        FileVo fileInfo = FileUtils.getInfoFromFile(file);
         fileInfoList.add(fileInfo);
 
         return fileInfo;

@@ -35,7 +35,7 @@ public class UploadController {
             File dest = new File(fileServerCache.getBasePath() + "/" + fileName);
             dest.setExecutable(false);  // 防止恶意文件攻击，禁止执行权限
             file.transferTo(dest);
-            res = fileServerCache.cacheFileInfo(fileName, file.getSize());
+            res = fileServerCache.cacheFileInfo(dest);
 
             log.debug("上传完毕，【 文件名 {} 】", fileName);
         } catch (Exception ex){
