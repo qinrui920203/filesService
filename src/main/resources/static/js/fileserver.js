@@ -2,11 +2,13 @@ var uploadModel = new Vue({
     el: "#vueUpload",
     data: {
         labelMessage: "upload",
+        upfileName: null,
         upFile: null
     },
     methods: {
         tirggerFile: function(e){
             this.upFile = e.target.files[0];
+            this.upfileName = e.target.value;
         },
         dpupload: function (e) {
             var formData = new FormData();

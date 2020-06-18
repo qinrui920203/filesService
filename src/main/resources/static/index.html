@@ -8,22 +8,40 @@
 
 </head>
 <body>
+    <div id="commonStyle_adaptor">
+    <div id="pageHead">
+        <span id="titleName">R.U.I FileSrever version 1.0.1</span>
+        <div>
+            <input id="totalSearch" type="text" />
+            <span id="doSearch"></span>
+        </div>
+    </div>
+
     <div id="vueUpload">
-        <label class="control-label">{{labelMessage}}</label>
-        <div id="fileStyleAdapter"></div>
+        <div id="fileStyleAdapter" :class="upfileName?'up-done':'up-wait'">
+            <img v-if="upfileName" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592457987622&di=f06ea3501046ae34d19bf237656805b2&imgtype=0&src=http%3A%2F%2Ft7.baidu.com%2Fit%2Fu%3D113377658%2C2698741941%26fm%3D193">
+        </div>
+        <label v-if="upfileName">已选择文件： {{upfileName}} </label>
         <input id="fileInput_one" type="file" class="upload" @change="tirggerFile($event)"/>
-        <input id="fileSubmitBtn" type="button" value="上传" @click="dpupload">
+        <span id="fileSubmitBtn" type="button"  @click="dpupload">上传</span>
     </div>
 
     <div id="vueListFiles">
         <span id="refreshList">刷新</span>
         <ul>
             <li v-for="file in files">
-                {{ file.name }}
+                <span class="display_fileName">{{ file.name }}</span>
+                <span class="display_fileSize">{{ file.size }} &nbsp KB</span>
+                <div class="fileOptions">
+                    <span class="viewFile" v-if=" file.type == 'img' "> 预览 </span>
+                    <span class="downloadfile"> 下载 </span>
+                    <span class="deleteFile"> 删除 </span>
+                </div>
             </li>
         </ul>
     </div>
     <span class="iconfont .icon-icon_add"></span>
+    </div>
 </body>
 <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="js/lib/vue.js"></script>
