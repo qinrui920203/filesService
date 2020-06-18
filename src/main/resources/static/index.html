@@ -28,7 +28,7 @@
     </div>
 
     <div id="vueListFiles">
-        <span id="refreshList">刷新</span>
+        <span id="refreshList" @click="refresh">刷新</span>
         <ul>
             <li v-for="file in files">
                 <span class="display_fileName">{{ file.name }}</span>

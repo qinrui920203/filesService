@@ -1,3 +1,20 @@
+// 文件列表刷新核心方法，后续分页也用这个
+function refreshDisplayList (content,begin, end) {
+    var url = content?"/fileserver/file/refreshList":"/fileserver/file/list";
+    $.ajax({
+        type: "GET",
+        url: '/fileserver/file/list',
+        data: null,
+        success: function (data) {
+            if(content){
+                content.files = data;
+            } else {
+                fileList._data.files = data;
+            }
+        }
+    });
+}
+
 var uploadModel = new Vue({
     el: "#vueUpload",
     data: {
@@ -12,7 +29,7 @@ var uploadModel = new Vue({
         },
         dpupload: function (e) {
             var formData = new FormData();
-            formData.append(type, this.upFile);
+            formData.append("file", this.upFile);
             $.ajax({
                 type: "POST",
                 url: '/fileserver/upload/single',
@@ -21,6 +38,7 @@ var uploadModel = new Vue({
                 contentType: false,
                 success: function (data) {
                     console.log(data);
+                    refreshDisplayList(fileList._data);
                 }
             });
         }
@@ -35,14 +53,13 @@ var fileList = new Vue({
             { name: '文件2' },
             { name: '文件3' }
         ]
+    },
+    methods: {
+        refresh: function () {
+            refreshDisplayList(this);
+        }
     }
 });
 
-$.ajax({
-    type: "GET",
-    url: '/fileserver/file/list',
-    data: null,
-    success: function (data) {
-        fileList._data.files = data;
-    }
-});
+// 初始化调用refreshDisplayList刷新文件列表,默认15个一页
+refreshDisplayList(null, 0, 15);

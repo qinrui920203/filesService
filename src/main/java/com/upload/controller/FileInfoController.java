@@ -24,7 +24,7 @@ public class FileInfoController {
         return fileServerCache.getFileInfoList();
     }
 
-    @RequestMapping(value = "refreshList", method = RequestMethod.GET)
+    @RequestMapping(value = "/refreshList", method = RequestMethod.GET)
     public List<FileVo> refreshList(){
         String basePath = fileServerCache.getBasePath();
 

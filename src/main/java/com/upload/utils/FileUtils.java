@@ -24,7 +24,7 @@ public class FileUtils {
             String fileName = file.getName();
             fileVo.setName(fileName);
             fileVo.setType(file.isDirectory()?"dir":fileName.split("\\.")[fileName.split("\\.").length-1]);
-            fileVo.setSize(file.length());
+            fileVo.setSize(file.length()/1024);
 
             return fileVo;
         }).collect(Collectors.toList());

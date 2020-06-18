@@ -142,6 +142,7 @@ div#fileStyleAdapter.up-wait:after{
 #vueListFiles ul li .display_fileName {
     display: inline-block;
     width: 200px;
+    height: 35px;
     overflow: hidden;
 }
 #vueListFiles ul li .display_fileSize {

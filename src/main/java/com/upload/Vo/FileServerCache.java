@@ -25,7 +25,7 @@ public class FileServerCache {
     private List<FileVo> fileInfoList;
 
     /* ** 增加一个文件信息到缓存 */
-    public void cacheFileInfo(String fileName, Long fileSize){
+    public FileVo cacheFileInfo(String fileName, Long fileSize){
 
         FileVo fileInfo = new FileVo();
         fileInfo.setName(fileName);
@@ -40,6 +40,8 @@ public class FileServerCache {
         }
 
         fileInfoList.add(fileInfo);
+
+        return fileInfo;
     }
 
     /* ** 从缓存中删除一个文件 */
