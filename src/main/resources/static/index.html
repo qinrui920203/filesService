@@ -5,6 +5,7 @@
     <title>文件上传</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
 
 </head>
 <body>
@@ -19,7 +20,7 @@
 
     <div id="vueUpload">
         <div id="fileStyleAdapter" :class="upfileName?'up-done':'up-wait'">
-            <img v-if="upfileName" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592457987622&di=f06ea3501046ae34d19bf237656805b2&imgtype=0&src=http%3A%2F%2Ft7.baidu.com%2Fit%2Fu%3D113377658%2C2698741941%26fm%3D193">
+            <img v-if="upfileName" src="imgs/done.jpg">
         </div>
         <label v-if="upfileName">已选择文件： {{upfileName}} </label>
         <input id="fileInput_one" type="file" class="upload" @change="tirggerFile($event)"/>
@@ -33,9 +34,9 @@
                 <span class="display_fileName">{{ file.name }}</span>
                 <span class="display_fileSize">{{ file.size }} &nbsp KB</span>
                 <div class="fileOptions">
-                    <span class="viewFile" v-if=" file.type == 'img' "> 预览 </span>
-                    <span class="downloadfile"> 下载 </span>
-                    <span class="deleteFile"> 删除 </span>
+                    <span class="viewFile icon iconfont icon-icons_search" v-if=" file.type == 'img' "></span>
+                    <span class="downloadfile icon iconfont icon-icons_download"></span>
+                    <span class="deleteFile icon iconfont icon-icons_delete-31"></span>
                 </div>
             </li>
         </ul>

@@ -6,9 +6,11 @@ body {
     height: 100%;
 }
 #commonStyle_adaptor {
-    width: 705px;
+    width: 760px;
     margin: 0 auto;
     height: 100%;
+    position: relative;
+    left: -34px;
 }
 #pageHead {
     width: 750px;
@@ -155,7 +157,9 @@ div#fileStyleAdapter.up-wait:after{
 }
 .fileOptions span {
     cursor: pointer;
+    margin-left: 10px;
 }
+
 #vueListFiles span#refreshList {
     position: absolute;
     right: 15px;

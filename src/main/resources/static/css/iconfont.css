@@ -1,0 +1,29 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1592451830674'); /* IE9 */
+  src: url('iconfont.eot?t=1592451830674#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAQAAAsAAAAACFwAAAOyAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDFAqEDINNATYCJAMQCwoABCAFhG0HWRtIBxFVnC/IfhbYMfE6NKOjYR9OO3lTsdlgZV/y+c/zuw9JXqEPegUh/QNhNU7HavuX0tmPVwDWgNMAAQSz/fppu1qEXWHS3Y2/eJpNfT/pm9m/tPE4jVIICcKRoanEf9w7/aPOP1jrWW2nsYaNNSjqAozmeRfYGJMDCrRAsWHsgpZ4HQgAIyKkIZXVjZ0Q4DDnEQBkycL5MyEyZvAGgkDo5IqtHOQgJAi6i14DcCD4PXmDnARAITGYS1vnVc1B6XPjcxvTdA1TPASS6ZwA2C6AAUgDcIDMqHRPAouiaRiMKi9HBkAGr6TPTc9tus6UosAMbFOy/T8eBQOIDFNthuS8GAOeGx0mEOC5iQkUeG4zg0GczxYADAAGADwA5LAyCgk0IsSMXwgJMs8+tidwvtsVUH58t18ncx03GncfBXVmZpQe1fwnONyjgaTCDys5HoW14fn0KB0cwNyBpmMqfd8yxzF/HPWzHw8g7uXQ/MzHCXEFWo6tMe8eCJh23G0y7TnmP9Uy3Y1WYcrRvnX37nXeu6/ef9ilbgMtSXU+fOh88GCKLQxf6bp/X7137+XAUMiQzVxprfxYcakYH32ieJVKx/V4fKQohOkrPuTdirF0Q2UVjKojqrwrOqbbmotnerdiaBeB3YEr2rVRxXeIdgNxKFp7OvvUzhWiXayAZa6D7YaVqssQfbC6kq0++cQSmZY/k1Vxp+yWkn3npPhKOxSVV/GCmeEtCPm0zeTKkaT1cetb3i1sWFL3W6qb3n+otHbqVZfKD+8rJvk/yZqXO/fE6pXD62hPL11L1/X0rPOJ3h66qrcXKwAA+uw0K6RU7DqbRsQebicACPAl8HzwdFvhN3F81LanDvYdenT+6Z4DgQKT/FRJxwauyUwLnyJ3xPpVXL01AKAAIyPgZxYDgI+/KbT+nfMBQvBPgFKEAyPEoZycBhKTPJAJJWCUKt5t4ksskRkApPgCQNh9A2V1Dhi7H5STf0ES4B9k9pZg5Mz3SJOEmkOFIFOUlH9SU/BobJsewsIHVK99JmlZQHmB2CZAgevnEzFGyBQr7FsVqhoywgPdwW3oe6ZJuEWhbq063TzPVL3JLXiYHVQQkFFQIrlPpFFgI+O1VofC9x9A5VUvIw11VcEXIKxmeBJw+R3QWD12qruV0dabSkgpg2cZgg3IHTqht6KMTNWTWlBQrnpAeHLjoWamq9pdXju84T4AI3McjxJGOJFgvfZZNin5few5K6/pWvRQOFFwohUWmRT1bAYAAA==') format('woff2'),
+  url('iconfont.woff?t=1592451830674') format('woff'),
+  url('iconfont.ttf?t=1592451830674') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1592451830674#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icons_download:before {
+  content: "\e60a";
+}
+
+.icon-icons_delete-31:before {
+  content: "\e60b";
+}
+
+.icon-icons_search:before {
+  content: "\e60f";
+}
+
