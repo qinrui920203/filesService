@@ -3,7 +3,7 @@ function refreshDisplayList (content,begin, end) {
     var url = content?"/fileserver/file/refreshList":"/fileserver/file/list";
     $.ajax({
         type: "GET",
-        url: '/fileserver/file/list',
+        url: url,
         data: null,
         success: function (data) {
             if(content){

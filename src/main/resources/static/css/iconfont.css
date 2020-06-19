@@ -6,7 +6,22 @@
   url('iconfont.ttf?t=1592451830674') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
   url('iconfont.svg?t=1592451830674#iconfont') format('svg'); /* iOS 4.1- */
 }
-
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1592489324871'); /* IE9 */
+  src: url('iconfont.eot?t=1592489324871#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAASsAAsAAAAACWAAAARgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqFbIRfATYCJAMUCwwABCAFhG0HWRv8B1FUTppkPyRJgkce84AjhwGQRcQEFAAoAAAABBF8v99vz5X3cU+iiaH7dBKeST9BKIQGMWioZDJewruatv1+lC7MWlqapHZV7aftJfepc9l8cVSJ0igDQoJwSIb0qsmKyUHi7Bno/t2S3Xd7V2tqAygjHK57F28ILkQoE5WJkFEoVIRCLElCGWFboSqc7jK81qU67NsJ9FmyoXF8dnMPQkGWBaKrIg9EwqhUMEKPpinYW0A8gqonNeK+AA/e78c/2AkBJDUDcqeTm9MQDr7Qryb4pyfoOj+B++Hs4A+RsQ0U4rbQ2dUKktta+tS/a9sH+vRI0hf6RerL3NetpxZNtiF1H0WG+MdLCtEAggaAvJ8qfKEWRuZLCiP4msNIfJtIHgyqzp4+jACfQMwAUS97F90osnwOQ5l4NkGWxGCiVEwQZWXSYubOkNDhc8Xo2VMQNHCS0LPAFwQX6dH9y4KhnCWFuD4BhNPP798L+fx6AkFgdJNAQB+CcAQD+3sBrifAH+9XWifOmlkApDY4Jj8xWYBBZONoTSdCYGCxuVYcIYbR/QawJzCbKwppjKYFuOhXUxp/llLWzSsp3ORre/b9W1n81Ju02UW40LTEWc5nza2JBg43C/uH2nXBgyv0uTMR4kLzmM2L/P7M+coh5Awc0CJZPd6ZfL29dHa/YCjC6YthNPUAXOjwMZ0JGwQ6ILJK7pARJZVTtTsCuqzIdOmLb//sFkjlqD26RkYbyzA7gBhP0CbIez4dnr4s+2KlKf1FqaaWmwTp+khbUiFRtz7P7zXFjVaXlekhmhkFjK5Z/Mde217H/KL8JwK6/+zQ7p/w18oPR+IJjA9gKHHE5R6jcr8cMyDMpCz6R5Sj/tIBaDnGZflb0QAsOQ7oxpJzoYur0C8hrIVBfm5NFleLq2l9Tfnm42X4//3v75SfuUX34N9ov/ncsV8M4IQuDdJ0J7yxizajSIsJW1EyqeDpUUSwwLNiQwV8rW4DicWZ5LR7DTuV3vY+8lufuAARAWFi9fyshDFyo3zZfAXai9YH/gCA/IQXnuUN//vM8y7Pt91f2PkX9MfW9YH1pTjYXrShW6pHorH4ZxE3bCmalJhqURotkRKqjv0KKKnZPrTgHfM7jHqycTmhx2QEScciZD2W8YW8DVW/XWj02IM+W84P9xuntUShAja9IwgjPiEZ8grZiG98If9ANeUPGiPRgj6nsXJmv9VQ08eaPKYQ/QmqoMilaeFpv/KWojr1dFzqMR9JVyqCtmGlM+eUkx5iQzWMHGaJUhcZnqG7UZoWWOpiQAEbMXO5ZZqy6JWMoMhg2hGNeBgJId8EUgKFnHQ6s+nMz98ikVrKoyuaqryPiFZRoyObwWqAP0d5o6ZLuU9lKOJgTEKSVsigM2QnKU0WUFk8a4AEmCHuEC9tMXE72RQZ06uzezwEfcg31MAheISAEBESGLuLVanyflx7vpfL2qe869hSpdTlulReLkaUDzyHAwA=') format('woff2'),
+  url('iconfont.woff?t=1592489324871') format('woff'),
+  url('iconfont.ttf?t=1592489324871') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1592489324871#iconfont') format('svg'); /* iOS 4.1- */
+}
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1592492272430'); /* IE9 */
+  src: url('iconfont.eot?t=1592492272430#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAALkAAsAAAAABngAAAKYAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqBAIEbATYCJAMICwYABCAFhG0HMRvCBciuMQbXD0RDQzItKSkNeu6eo/wYA58M8fD8fq1z37wZPuIS6Z7NGglvJBqNuNqaJrHQNq+Hsu0frbVBzBeJ7w0xzyez93vne4tr9dIoiSbpJUFoRDINUMAFrBe+QnM1RNc6vBbQLEXVAwSg9cqX+I97p3+ed4HMB5TLHJMmdQF1cSAFuBdGW7hEMm8Yu+AFnifQYERAxubE3Brky+xpgbhlmgT5Bb8ss1Qh1BrWZoinVKS79A3Ak+j78Q9ikQ+SagXsip3zcRWGfjInI+u0PFWACCCgzVVUsARk4qAxviVLMGqWhni2CXCs0uDn1X8ZGMVRdYL9dXZxExiC/GcSeMJHTSV4rL5mgNVJBxAzO1+pwkRiLZlcT6c3ixJKKrXxlmRyefOlhtPTu87urfuxV7ATHH3m43vmQ3r58TMP8fqx6X6z8zVlvsr/zzucgIMu2oeX7ve7hx+5mdkNVbcMZld6H1taysG/GYUMBA/tz7Ss768gG+B7e0fecmGYExRncAR/SjCwJRsi25CyJmjsTGbuoKpBA0qwu8PPVHX3bVlDURBNcNYZ1qGiMIVmcgmqGi1DTWEFGiya3NyoE5clcgGw4ApAaPMGSYt3UNHmE83kN1T1+IWatsiCBkdRtWejmWCFoxwlgSqR9whTHJu6JlEYl66gtmVKPC+KaBvIfRYi0VCknJpEG/kSC/xtLSYEJZQ7FpkAl6FpOsTljo6KCMWFcHvCYdp0o5DiWFBoA4ckAlIRsj0Eo3DYaNBdKKx8fgXSbDFJeEdTnX0D4nxscCIqJDIAnZTbg5oe5RrfNk2MIFAExTksxAQYhUwmB+E2j9IhhRASnxB19Qg77ehQeWh7pfV3e6CBrUnhDM2Curv4lrTLbAA=') format('woff2'),
+  url('iconfont.woff?t=1592492272430') format('woff'),
+  url('iconfont.ttf?t=1592492272430') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1592492272430#iconfont') format('svg'); /* iOS 4.1- */
+}
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
@@ -15,6 +30,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/** 删除 下载 查看 */
 .icon-icons_download:before {
   content: "\e60a";
 }
@@ -26,4 +42,23 @@
 .icon-icons_search:before {
   content: "\e60f";
 }
+/** 文件 图片 视频 */
+.icon-shipin:before {
+  content: "\e620";
+}
 
+.icon-21file:before {
+  content: "\e6a6";
+}
+
+.icon-tupian:before {
+  content: "\e610";
+}
+
+.icon-wenjian2:before {
+  content: "\e73a";
+}
+/** 刷新 */
+.icon-shuaxin:before {
+  content: "\e669";
+}

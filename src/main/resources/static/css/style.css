@@ -141,17 +141,30 @@ div#fileStyleAdapter.up-wait:after{
 }
 #vueListFiles ul li .display_fileName {
     display: inline-block;
-    width: 200px;
+    width: 400px;
     height: 35px;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 #vueListFiles ul li .display_fileSize {
     position: relative;
     text-align: right;
     bottom: 10px;
-    left: 150px;
+    left: 10px;
     display: inline-block;
     width: 150px;
+}
+li.vdir span.disc {
+    color: #af9206;
+}
+li.vimg span.disc {
+    color: #0c6dbf;
+}
+li.vvideo span.disc {
+    color: #4aa512;
+}
+li.vfile span.disc {
+    color: #101010;
 }
 #vueListFiles ul li .fileOptions {
     float: right;
@@ -167,4 +180,8 @@ div#fileStyleAdapter.up-wait:after{
     top: 7px;
     color: #0b2dd2;
     cursor: pointer;
+}
+.fileIcon {
+    position: relative;
+    bottom: 10px;
 }

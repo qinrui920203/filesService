@@ -29,7 +29,18 @@ public class FileServerCache {
     /* ** 增加一个文件信息到缓存 */
     public FileVo cacheFileInfo(File file){
         FileVo fileInfo = FileUtils.getInfoFromFile(file);
-        fileInfoList.add(fileInfo);
+
+        int addIndex = 0;
+        boolean pushed = false;
+        for(FileVo fileVo : fileInfoList){
+            if(fileVo.getType().equals(fileInfo.getType())){
+                fileInfoList.add(addIndex, fileInfo);
+                pushed = true;
+                break;
+            }
+            ++addIndex;
+        }
+        if(!pushed){fileInfoList.add(fileInfo);}
 
         return fileInfo;
     }

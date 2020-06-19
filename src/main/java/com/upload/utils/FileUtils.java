@@ -4,10 +4,7 @@ import com.upload.Vo.FileVo;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /* **
@@ -33,6 +30,7 @@ public class FileUtils {
 
         List<FileVo> fileVoList = Arrays.stream(baseDir.listFiles())
                 .map(FileUtils::getInfoFromFile)
+                .sorted(Comparator.comparing(FileVo::getType))
                 .collect(Collectors.toList());
 
         return fileVoList;
@@ -60,7 +58,7 @@ public class FileUtils {
             } else {
                 String fileLastName = fileName.substring(lastIndexOfPoint+1, nameSize);
                 String fileType = TYPEMAPPING.get(fileLastName);
-                fileType = null==fileType ? fileLastName : fileType;
+                fileType = (null==fileType) ? "file" : fileType;
                 fileVo.setType(fileType);
             }
         }
