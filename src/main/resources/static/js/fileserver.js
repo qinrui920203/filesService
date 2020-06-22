@@ -14,6 +14,20 @@ function refreshDisplayList (content,begin, end) {
         }
     });
 }
+// 预览功能
+function openShadow(type, url){
+    var shadowDiv = $("#shadowBox");
+    var displayImg = shadowDiv.find("img").hide(),
+        displayVideo = shadowDiv.find("video").hide();
+    if(type == "img") {
+        shadowDiv.show();
+        displayImg.attr("src", url);
+        displayImg.show();
+    }
+}
+function closeShadow(){
+    $("#shadowBox").hide();
+}
 
 var uploadModel = new Vue({
     el: "#vueUpload",
@@ -48,6 +62,8 @@ var uploadModel = new Vue({
 var fileList = new Vue({
     el: '#vueListFiles',
     data: {
+        baseUrl: "download/getFileByName?fileName=",
+        downloadUrl: "",
         files: [
             { name: '文件1' },
             { name: '文件2' },
@@ -57,6 +73,14 @@ var fileList = new Vue({
     methods: {
         refresh: function () {
             refreshDisplayList(this);
+        },
+        downloadFile: function (event) {
+            var fileName = event.target.getAttribute("dataValue");
+            this.downloadUrl = this.baseUrl+fileName;
+        },
+        viewImg: function (event){
+            var imgUrl = event.target.getAttribute("dataValue");
+            openShadow("img", this.baseUrl+imgUrl);
         }
     }
 });

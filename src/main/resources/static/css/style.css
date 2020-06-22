@@ -185,3 +185,32 @@ li.vfile span.disc {
     position: relative;
     bottom: 10px;
 }
+/** 刷新 */
+.icon-shuaxin:before {
+    content: "\e669";
+}
+/** 遮罩 */
+#shadowBox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(179, 176, 176, 0.6);
+    display: none;
+}
+#shadowBox img{
+    max-width: 500px;
+    display: block;
+    max-height: 300px;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 200px);
+}
+#closeShadow{
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}

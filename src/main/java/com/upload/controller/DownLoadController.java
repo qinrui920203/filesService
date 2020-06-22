@@ -4,9 +4,7 @@ import com.upload.Vo.FileServerCache;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -26,7 +24,7 @@ public class DownLoadController {
      */
 
     @RequestMapping(value = "/getFileByName", method = RequestMethod.GET)
-    public void downloadFile(@PathVariable String fileName,
+    public void downloadFile(String fileName,
                              HttpServletResponse response) throws IOException {
 
         response.setHeader("content-type", "application/octet-stream");
