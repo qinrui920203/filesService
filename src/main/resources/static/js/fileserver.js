@@ -29,6 +29,33 @@ function closeShadow(){
     $("#shadowBox").hide();
 }
 
+// 大文件分块上传核心方法
+function bigFileUpLoad(file, formData, totalSize, blockSize, blockCount, fileIndex){
+    var start = fileIndex * blockSize;
+    var end = Math.min(totalSize, start+blockSize);
+    var upBlock = file.slice(start, end);
+
+    formData.set('data', upBlock);
+    formData.set('index', fileIndex);
+
+    $.ajax({
+        url: '',
+        type: 'post',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(res){
+            if(res.statu == 'finished' || start >= end){
+                return ;
+            } else {
+                var newIndex = ++fileIndex;
+                formData.set('data', null);
+                formData.set('index', null);
+                bigFileUpLoad(file, formData, totalSize, blockSize, blockCount, newIndex);
+            }
+        }
+    });
+}
 var uploadModel = new Vue({
     el: "#vueUpload",
     data: {
@@ -55,6 +82,34 @@ var uploadModel = new Vue({
                     refreshDisplayList(fileList._data);
                 }
             });
+        }
+    }
+});
+
+var bigFileUpload = new Vue({
+    el: "#vueBigFileUpload",
+    data: {
+        labelMessage: "big-file-upload",
+        upfileName: null,
+        upFile: null
+    },
+    methods: {
+        tirggerFile: function(e){
+            this.upFile = e.target.files[0];
+            this.upfileName = e.target.value;
+        },
+        bigUpload: function(e){
+            var fileIndex = 0,
+                bigFile = this.upFile;
+            var totalSize = bigFile.size;
+            var blockSize = 1024 * 1024 * 5;
+            var blockCount = Math.ceil(totalSize/blockSize);
+
+            var formData = new FormData();
+            formData.append('fileName', this.upfileName);
+            formData.append('totalCount', blockCount);
+
+            bigFileUpLoad(bigFile, formData, totalSize, blockSize, blockCount, fileIndex);
         }
     }
 });

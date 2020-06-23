@@ -2,14 +2,18 @@ package com.upload.controller;
 
 import com.upload.Vo.FileServerCache;
 import com.upload.Vo.FileVo;
+import com.upload.utils.FileUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
+import javax.servlet.http.HttpServletRequest;
+import java.io.*;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -46,4 +50,70 @@ public class UploadController {
         return res;
     }
 
+    /**
+     * 大文件分片上传
+     * @Author Rui
+     *
+     */
+    @RequestMapping(value = "/big", method = RequestMethod.POST)
+    public FileVo uploadBigFile(@RequestParam(value = "data", required = false) MultipartFile file
+            , HttpServletRequest request){
+        Integer blockCount = Integer.parseInt(request.getParameter("totalCount"));
+        Integer nowIndex = Integer.parseInt(request.getParameter("index"));
+        String fileName = request.getParameter("fileName");
+
+        try {
+            log.debug("======= 分块{}开始上传 =======", nowIndex);
+
+            File dest = new File(fileServerCache.getBasePath() + "/" + fileName + ".tmp_" + nowIndex);
+            file.transferTo(dest);
+
+            FileVo blockinfo = new FileVo();
+            blockinfo.setName(dest.getName());
+            blockinfo.setType("block");
+            blockinfo.setSize(dest.length());
+            fileServerCache.addFileBlockToCache(fileName, blockinfo);
+            fileServerCache.changeFileBlockStatu(fileName, "uploading");
+            log.debug("======= 分块{}结束上传 =======", nowIndex);
+        } catch (IOException e) {
+            log.error("something wrong in your server, model write failed");
+            e.printStackTrace();
+        }
+
+        if(blockCount == nowIndex){
+            fileServerCache.changeFileBlockStatu(fileName, "finished");
+            return mergeFiles(fileName);
+        } else {
+            return null;
+        }
+    }
+
+    private FileVo mergeFiles(String fileName){
+        File mergedFile = new File(fileServerCache.getBasePath() + "/" + fileName);
+        List<FileVo> blocks = fileServerCache.getFileInfoList();
+
+        // 文件追加写入 这里测试没问题后改成
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream(mergedFile, true);
+            byte[] byt = new byte[10 * 1024 * 1024];
+            int readLen = 0;
+
+            FileInputStream temp = null;
+            List<FileVo> fileVos = fileServerCache.getFileInfoList();
+            for(FileVo fileVo : fileVos){
+                File tempFile = new File(fileServerCache.getBasePath() + fileVo.getName());
+                temp = new FileInputStream(tempFile);
+                while( (readLen = temp.read(byt)) != -1){
+                    fileOutputStream.write(byt, 0, readLen);
+                }
+            }
+
+            fileServerCache.changeFileBlockStatu(fileName, "merged");
+        } catch (IOException ioex){
+            log.debug("some thing wrong when merge file");
+            ioex.printStackTrace();
+        }
+
+        return FileUtils.getInfoFromFile(mergedFile);
+    }
 }

@@ -5,8 +5,10 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /* **
  * @Author RUI
@@ -25,6 +27,8 @@ public class FileServerCache {
 
     /* ** 文件信息缓存list */
     private List<FileVo> fileInfoList;
+    /* ** 分片上传缓存信息 */
+    private Map<String, FileBlockVo> blockFileVoMap;
 
     /* ** 增加一个文件信息到缓存 */
     public FileVo cacheFileInfo(File file){
@@ -55,12 +59,43 @@ public class FileServerCache {
     }
 
     /* **初始化缓存对象 */
-    public List<FileVo> initChace(){
-        return new LinkedList<FileVo>();
+    public void initChace(){
+        blockFileVoMap = new HashMap<String, FileBlockVo>();
     }
 
     /* **清空缓存 */
     public void clearCache(){
         fileInfoList.clear();
+    }
+
+    /* ** 增加一个分片 */
+    public void addFileBlockToCache(String fileName, FileVo blockinfo){
+        FileBlockVo fileBlockVo = blockFileVoMap.get(fileName);
+        if(null == fileBlockVo){
+            blockFileVoMap.put(fileName, new FileBlockVo());
+        }
+        fileBlockVo.getBlocks().add(blockinfo);
+    }
+
+    /* ** 获取文件分片列表 */
+    public List<FileVo> getBlockInfoByName(String fileName){
+        return blockFileVoMap.get(fileName).getBlocks();
+    }
+
+    /* ** 修改分片记录状态 */
+    public void changeFileBlockStatu(String fileName, String statu){
+        FileBlockVo fileBlockVo = blockFileVoMap.get(fileName);
+        fileBlockVo.setStatu(statu);
+    }
+
+    /* ** 获取分片记录状态 */
+    public String getFileBlockStatu(String fileName, String statu){
+        FileBlockVo fileBlockVo = blockFileVoMap.get(fileName);
+        return fileBlockVo.getStatu();
+    }
+
+    /* ** 删除分片 */
+    public void removeFileBlockFromCache(String fileName){
+        blockFileVoMap.remove(fileName);
     }
 }
