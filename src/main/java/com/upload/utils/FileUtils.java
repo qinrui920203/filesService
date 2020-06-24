@@ -4,6 +4,7 @@ import com.upload.Vo.FileVo;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -67,4 +68,13 @@ public class FileUtils {
 
         return fileVo;
     }
+
+    public static void deleteFileByFile(File file) throws IOException {
+        if(file.isDirectory()) {
+            org.apache.commons.io.FileUtils.deleteDirectory(file);
+        } else {
+            org.apache.commons.io.FileUtils.deleteQuietly(file);
+        }
+    }
+
 }

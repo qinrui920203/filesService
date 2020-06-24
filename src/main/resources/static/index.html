@@ -19,6 +19,7 @@
     </div>
 
     <div id="vueUpload" class="uploadBox">
+        <label v-if="!upfileName">{{labelMessage}}</label>
         <div id="fileStyleAdapter" :class="upfileName?'up-done':'up-wait'">
             <img v-if="upfileName" src="imgs/done.jpg">
         </div>
@@ -28,12 +29,14 @@
     </div>
 
     <div id="vueBigFileUpload" class="uploadBox">
+        <label v-if="!upfileName">{{labelMessage}}</label>
         <div :class="upfileName?'up-done':'up-wait'">
             <img v-if="upfileName" src="imgs/done.jpg">
         </div>
         <input id="fileInput_big" type="file" class="upload" @change="tirggerFile($event)"/>
         <label v-if="upfileName">已选择文件： {{upfileName}} </label>
         <span id="fileSubmitBtn-big" type="button" class="submitSpan" @click="bigUpload">上传</span>
+        <div class="rate"><span></span></div>
     </div>
 
     <div id="vueListFiles">

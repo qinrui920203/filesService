@@ -34,10 +34,11 @@ body {
 
 .uploadBox {
     height: 150px;
-    width: 750px;
+    width: 375px;
     margin: 0 auto;
     position: relative;
     margin-top: 20px;
+    display: inline-block;
 }
 
 .uploadBox label {
@@ -58,6 +59,8 @@ body {
     border-radius: 5px;
     color: transparent;
     position: absolute;
+    top: 39px;
+    left: 15px;
 }
 #vueUpload #fileInput_one {
     top: 39px;

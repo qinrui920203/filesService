@@ -72,7 +72,8 @@ public class FileServerCache {
     public void addFileBlockToCache(String fileName, FileVo blockinfo){
         FileBlockVo fileBlockVo = blockFileVoMap.get(fileName);
         if(null == fileBlockVo){
-            blockFileVoMap.put(fileName, new FileBlockVo());
+            fileBlockVo = new FileBlockVo();
+            blockFileVoMap.put(fileName, fileBlockVo);
         }
         fileBlockVo.getBlocks().add(blockinfo);
     }

@@ -34,32 +34,31 @@ function bigFileUpLoad(file, formData, totalSize, blockSize, blockCount, fileInd
     var start = fileIndex * blockSize;
     var end = Math.min(totalSize, start+blockSize);
     var upBlock = file.slice(start, end);
+    if(start >= end){
+        return ;
+    }
 
     formData.set('data', upBlock);
     formData.set('index', fileIndex);
 
     $.ajax({
-        url: '',
+        url: '/fileserver/upload/big',
         type: 'post',
         data: formData,
         processData: false,
         contentType: false,
         success: function(res){
-            if(res.statu == 'finished' || start >= end){
-                return ;
-            } else {
-                var newIndex = ++fileIndex;
-                formData.set('data', null);
-                formData.set('index', null);
-                bigFileUpLoad(file, formData, totalSize, blockSize, blockCount, newIndex);
-            }
+            var newIndex = ++fileIndex;
+            formData.set('data', null);
+            formData.set('index', null);
+            bigFileUpLoad(file, formData, totalSize, blockSize, blockCount, newIndex);
         }
     });
 }
 var uploadModel = new Vue({
     el: "#vueUpload",
     data: {
-        labelMessage: "upload",
+        labelMessage: "less-20M-upload",
         upfileName: null,
         upFile: null
     },
@@ -89,7 +88,7 @@ var uploadModel = new Vue({
 var bigFileUpload = new Vue({
     el: "#vueBigFileUpload",
     data: {
-        labelMessage: "big-file-upload",
+        labelMessage: "20M-more-big-file-upload",
         upfileName: null,
         upFile: null
     },
@@ -106,7 +105,8 @@ var bigFileUpload = new Vue({
             var blockCount = Math.ceil(totalSize/blockSize);
 
             var formData = new FormData();
-            formData.append('fileName', this.upfileName);
+            var fileCurName = this.upfileName.substring(this.upfileName.lastIndexOf('\\')+1);
+            formData.append('fileName', fileCurName);
             formData.append('totalCount', blockCount);
 
             bigFileUpLoad(bigFile, formData, totalSize, blockSize, blockCount, fileIndex);
