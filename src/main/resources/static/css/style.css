@@ -223,3 +223,22 @@ li.vfile span.disc {
     right: 20px;
     cursor: pointer;
 }
+.rate {
+    height: 5px;
+    width: 200px;
+    border: 1px solid #8a9090;
+    background: #0fe834;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 30px;
+    left: 15px;
+    overflow: hidden;
+}
+.rate span{
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: #c1c7c4;
+    position: absolute;
+    left: 0%;
+}

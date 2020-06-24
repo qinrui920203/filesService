@@ -36,7 +36,7 @@
         <input id="fileInput_big" type="file" class="upload" @change="tirggerFile($event)"/>
         <label v-if="upfileName">已选择文件： {{upfileName}} </label>
         <span id="fileSubmitBtn-big" type="button" class="submitSpan" @click="bigUpload">上传</span>
-        <div class="rate"><span></span></div>
+        <div class="rate"><span v-bind:style="{left: rate+'%'}"></span></div>
     </div>
 
     <div id="vueListFiles">

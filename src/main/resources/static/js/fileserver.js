@@ -34,6 +34,7 @@ function bigFileUpLoad(file, formData, totalSize, blockSize, blockCount, fileInd
     var start = fileIndex * blockSize;
     var end = Math.min(totalSize, start+blockSize);
     var upBlock = file.slice(start, end);
+    bigFileUpload.$data.rate = start/end * 100;  // 计算进度
     if(start >= end){
         return ;
     }
@@ -89,6 +90,7 @@ var bigFileUpload = new Vue({
     el: "#vueBigFileUpload",
     data: {
         labelMessage: "20M-more-big-file-upload",
+        rate: 0,
         upfileName: null,
         upFile: null
     },
